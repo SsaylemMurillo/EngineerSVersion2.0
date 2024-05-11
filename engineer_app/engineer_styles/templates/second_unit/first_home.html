@@ -1,0 +1,104 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div
+  class="w-[92%] md:w-3/2 bg-white rounded p-5 mx-auto min-h-fit flex flex-col justify-start items-center"
+>
+  <div class="w-full h-fit">
+    <a href="{% url 'second_unit' %}">
+      <button
+        class="font-Kanit self-end p-2 bg-darkgit font-normal text-white hover:bg-gray-100 transition-colors duration-200 rounded shadow-md"
+      >
+        <img
+          class="col-end-10 items-end h-fit self-center"
+          src="{% static 'icons/feather/chevron-left2.svg' %}"
+        />
+      </button>
+    </a>
+  </div>
+  <div class="w-full md:w-1/2 h-fit m-10">
+    <h1 class="text-center font-Kanit font-bold text-xl text-dark md:text-left">
+      Capitalizacion y Amortizacion
+    </h1>
+    <p class="text-center font-Kanit text-md mt-5 text-dark md:text-left">
+      La capitalización se refiere al proceso mediante el cual
+      se registra un activo en el balance general de una empresa. En otras
+      palabras, es la conversión de un gasto en un activo. Cuando una empresa
+      invierte en un proyecto o adquiere un bien que proporcionará beneficios a
+      largo plazo, ese gasto se capitaliza. <br><br>La amortización es el proceso de distribuir
+      el costo de un activo a lo largo de su vida útil. Se utiliza para reflejar
+      el desgaste o consumo gradual del activo con el tiempo. Los activos
+      tangibles (como maquinaria, edificios) y activos intangibles (como
+      patentes, derechos de autor) se amortizan.
+    </p>
+    <div class="m-5 flex flex-col items-center justify-center">
+      <div
+        id="dropdownButton"
+        onclick="toggleDropdown()"
+        class="grid shadow-md bg-darkgit px-5 py-2 rounded cursor-pointer transition-colors duration-500 hover:bg-gray-500 w-[100%] md:w-1/2 grid-cols-4 items-center justify-end relative"
+      >
+        <h1
+          id="selectedValueTag"
+          class="mr-5 font-Kanit text-white text-sm col-span-2 items-start"
+        >
+          Selecciona
+        </h1>
+        <img
+          class="col-end-10 items-end h-fit self-center"
+          src="{% static 'icons/feather/chevron-down2.svg' %}"
+        />
+      </div>
+      <div
+        id="dropdownMenu"
+        class="shadow-xl bg-white mt-2 px-2 py-3 rounded cursor-pointer md:w-3/12 items-center justify-end w-full absolute border-2 border-darkgit border-opacity-30 hidden"
+      >
+        <a href="{% url 'home' %}"
+          ><div
+            class="font-Kanit text-sm cursor-pointer bg-white hover:bg-darkgit hover:text-white w-full p-2 rounded"
+          >
+            Capitalizacion
+          </div></a
+        >
+        <a href="{% url 'home' %}"
+          ><div
+            class="font-Kanit text-sm cursor-pointer bg-white hover:bg-darkgit hover:text-white w-full p-2 rounded"
+          >
+            Amortizacion
+          </div></a
+        >
+      </div>
+    </div>
+  </div>
+  {% block contenido_adicional %} {% endblock %}
+</div>
+
+<script>
+  function toggleDropdown() {
+    const dropdown = document.querySelector("#dropdownMenu");
+    const dropdownButton = document.querySelector("#dropdownButton");
+
+    const buttonRect = dropdownButton.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    dropdown.style.top = `${buttonRect.bottom + scrollTop}px`;
+    dropdown.style.left = `${buttonRect.left}px`;
+    dropdown.style.width = `${dropdownButton.offsetWidth}px`;
+
+    dropdown.classList.toggle("hidden");
+  }
+
+  function adjustDropdownPosition() {
+    const dropdown = document.querySelector("#dropdownMenu");
+    if (!dropdown.classList.contains("hidden")) {
+      const dropdownButton = document.querySelector("#dropdownButton");
+      const buttonRect = dropdownButton.getBoundingClientRect();
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      dropdown.style.top = `${buttonRect.bottom + scrollTop}px`;
+      dropdown.style.left = `${buttonRect.left}px`;
+      dropdown.style.width = `${dropdownButton.offsetWidth}px`;
+    }
+  }
+
+  window.addEventListener("resize", adjustDropdownPosition);
+</script>
+{% endblock %}

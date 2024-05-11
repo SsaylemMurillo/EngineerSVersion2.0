@@ -1,0 +1,87 @@
+{% extends 'second_unit/third_home.html' %}{% block contenido_adicional %} {{block.super}}
+<div id="mainDiv" class="flex flex-col items-center w-full md:w-1/2 h-fit p-2 mb-20">
+  <form
+    method="post"
+    action="{% url 'arith_gradient' %}"
+    class="w-full"
+    onsubmit=""
+  >
+    {% csrf_token %}
+    <h1 class="text-center font-Kanit font-bold text-md text-dark select-none">
+      Calculo de Capitalizacion
+    </h1>
+    <div class="flex flex-col">
+      <div class="flex flex-col mt-8">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value1">Valor Futuro (F)</label>
+        <input type="text" pattern="[0-9]*" inputmode="numeric" id="value1"
+        name="value1" class="input-number" placeholder="50.000$"/>
+      </div>
+
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value2">Valor Presente (P)</label>
+        <input type="text" pattern="[0-9]*" inputmode="numeric" id="value2"
+        name="value2" class="input-number" placeholder="50.000$"/>
+      </div>
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value3">Valor base o anualidad (A)</label>
+        <input type="text" pattern="[0-9]*" inputmode="numeric" id="value3"
+        name="value3" class="input-number" placeholder="50.000$"/>
+      </div>
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value4">Tasa de interes % (i)</label>
+        <input type="text" pattern="[0-9]*" inputmode="numeric" id="value4" name="value4" class="input-number" placeholder="5%"/>
+      </div>
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value5">Tipo de tasa de interes</label>
+        <select id="value5" name="value5" class="cursor-pointer mt-2 block py-2.5 px-0 w-full font-Kanit font-normal text-sm text-dark bg-transparent border-0 border-b-2 border-darkgit appearance-none focus:outline-none focus:ring-0 focus:border-darkgit peer">
+          <option selected>Selecciona un valor</option>
+          <option value="no_anu">Nominal Anual</option>
+          <option value="no_sem">Nominal Semestral</option>
+          <option value="no_men">Nominal Mensual</option>
+          <option value="no_sem">Nominal Semanal</option>
+        </select>
+      </div>
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value6">Tipo de Capitalizacion</label>
+        <select id="value6" name="value6" class="cursor-pointer mt-2 block py-2.5 px-0 w-full font-Kanit font-normal text-sm text-dark bg-transparent border-0 border-b-2 border-darkgit appearance-none focus:outline-none focus:ring-0 focus:border-darkgit peer">
+          <option selected>Selecciona un valor</option>
+          <option value="cap_men">Mensual</option>
+        </select>
+      </div>
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value7">Numero de flujos (n)</label>
+        <input type="text" pattern="[0-9]*" inputmode="numeric" id="value7" name="value7" class="input-number" placeholder="5 periodos"/>
+      </div>
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value8">Cuota que se desea calcular (n)</label>
+        <input type="text" pattern="[0-9]*" inputmode="numeric" id="value8" name="value8" class="input-number" placeholder="5 periodos"/>
+      </div>
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value9">Variacion constante (G)</label>
+        <input type="text" pattern="[0-9]*" inputmode="numeric" id="value9" name="value9" class="input-number"  placeholder="500 $"/>
+      </div>
+    </div>
+    
+    <div class="flex mt-5 gap-4">
+      <button
+        id="calculateButton"
+        type="submit"
+        class="select-button m-2 h-fit p-2 bg-white text-dark hover:bg-darkgit hover:border-darkgit"
+      >
+        Calcular
+      </button>
+      <button
+        id="cleanButton"
+        type="reset"
+        class="select-button m-2 h-fit p-2 bg-darkgit text-white hover:bg-darkgraygit hover:border-darkgraygit"
+      >
+        Limpiar
+      </button>
+    </div>
+  </form>
+</div>
+<script>
+  const element = document.getElementById("mainDiv");
+  element.scrollIntoView({ behavior: "smooth", inline: "nearest" });
+</script>
+{% endblock %}

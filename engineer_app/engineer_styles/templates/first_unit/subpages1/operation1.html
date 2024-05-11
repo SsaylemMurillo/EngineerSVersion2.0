@@ -1,0 +1,66 @@
+{% extends 'first_unit/first_home.html' %}{% block contenido_adicional %} {{block.super}}
+<div id="mainDiv" class="flex flex-col items-center w-full md:w-1/2 h-fit p-2 mb-20">
+  <form
+    method="post"
+    action="{% url 'capital_value' %}"
+    class="w-full"
+    onsubmit=""
+  >
+    {% csrf_token %}
+    <h1 class="text-center font-Kanit font-bold text-md text-dark select-none">
+      Calculo de Valor Futuro/Monto
+    </h1>
+    <div class="flex flex-col">
+      <div class="flex flex-col mt-8">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value1">Capital (C)</label>
+        <input type="text" pattern="[0-9]*" inputmode="numeric" id="value1"
+        name="value1" min="0" class="input-number" placeholder="50.000$" required/>
+      </div>
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value2">Tasa de interes % (i)</label>
+        <input type="text" pattern="[0-9]*" inputmode="numeric" id="value2" name="value2" class="input-number" placeholder="5%" required />
+      </div>
+      <div class="flex flex-col mt-5">
+        <label class="font-Kanit font-normal text-sm text-dark select-none" for="value3">Tipo de tasa de interes</label>
+        <select id="value3" name="value3" class="cursor-pointer mt-2 block py-2.5 px-0 w-full font-Kanit font-normal text-sm text-dark bg-transparent border-0 border-b-2 border-blue-500 appearance-none focus:outline-none focus:ring-0 focus:border-blue-100 peer">
+          <option selected>Selecciona un valor</option>
+          <option value="anu">Anual</option>
+          <option value="sem">Semestral</option>
+          <option value="men">Mensual</option>
+          <option value="sem">Semanal</option>
+      </select>
+      </div>
+    </div>
+    <div class="flex flex-col mt-5">
+      <label class="font-Kanit font-normal text-sm text-dark select-none" for="value4">Fecha de inicio</label>
+        <input datepicker id="value4" name="value4" type="date" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="dd-mm-yyyy" value=""
+        min="1990-01-01" max="2030-12-31">
+    </div>
+    <div class="flex flex-col mt-5">
+      <label class="font-Kanit font-normal text-sm text-dark select-none" for="value5">Fecha de fin</label>
+        <input datepicker id="value5" name="value5" type="date" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="dd-mm-yyyy" value=""
+        min="1990-01-01" max="2030-12-31">
+    </div>
+    <div class="flex mt-5 gap-4">
+      <button
+        id="calculateButton"
+        type="submit"
+        class="select-button m-2 h-fit p-2 bg-white text-dark hover:bg-darkgit hover:border-darkgit"
+      >
+        Calcular
+      </button>
+      <button
+        id="cleanButton"
+        type="reset"
+        class="select-button m-2 h-fit p-2 bg-darkgit text-white hover:bg-darkgraygit hover:border-darkgraygit"
+      >
+        Limpiar
+      </button>
+    </div>
+  </form>
+</div>
+<script>
+  const element = document.getElementById("mainDiv");
+  element.scrollIntoView({ behavior: "smooth", inline: "nearest" });
+</script>
+{% endblock %}

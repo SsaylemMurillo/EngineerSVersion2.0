@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}{% load static %}
+<div class="flex items-center justify-center h-fit">
+  <div
+    class="w-full flex flex-col items-center justify-stretch bg-white p-8 rounded md:w-1/2 m-5"
+  >
+  <h1 class="text-center font-Kanit font-bold text-md text-dark select-none mb-5">El resultado de la operación es:</h1>
+    <span id="resultValue" class="text-xl font-bold font-Kanit">
+      {% if result.mainresult %}
+      <p>Main Result: {{ result.mainresult }}</p>
+      {% if result.changedresult %}
+      <p>Changed Result: {{ result.changedresult }}</p>
+      {% endif %} {% else %}
+      <span id="resultValue" class="text-xl font-bold">{{ result }}</span>
+      {% endif %}
+    </span>
+    <button
+      id="mainButton"
+      onclick="closeTab()"
+      class="select-button mt-10 bg-darkgit w-40 text-white hover:bg-white hover:text-dark"
+    >
+      Cerrar
+    </button>
+  </div>
+</div>
+
+<script>
+  const element = document.getElementById("mainButton");
+  element.scrollIntoView({ behavior: "smooth", inline: "nearest" });
+</script>
+{% endblock %}

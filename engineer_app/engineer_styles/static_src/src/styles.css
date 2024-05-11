@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Kanit';
+    src: url('../fonts/Kanit/Kanit-Regular.ttf');
+}
+
+@layer components {
+    .button-nav-bar {
+        @apply text-darkgit m-2 md:m-2 md:px-4 md:py-2 font-bold transition-colors duration-200  hover:text-gray-100 rounded font-Kanit;
+    }
+
+    .main-button {
+        @apply border-0 hover:bg-dark hover:text-white font-bold text-dark md:border-2 md:border-dark m-2 px-2 py-2 md:px-8 md:font-normal transition-colors duration-200 md:hover:text-white rounded-full font-Kanit;
+    }
+
+    .select-button {
+        @apply w-full px-10 py-2 mt-3 font-normal hover:bg-dark hover:text-white text-dark border-2 md:border-dark md:font-normal transition-colors duration-300 md:hover:text-white rounded-full font-Kanit;
+    }
+
+    .input-number{
+        @apply bg-white border border-dark border-opacity-50 font-Kanit font-normal text-sm text-dark mt-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5;
+    }
+}

@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div
+  class="w-[92%] bg-white rounded p-5 mx-auto min-h-full flex flex-col justify-start items-center">
+  <div class="p-2 w-full md:w-1/2 h-fit m-10">
+    <div class="grid p-2">
+      <h1
+        class="text-center font-Kanit font-bold text-xl text-dark md:text-left"
+      >
+        Unidad 1
+      </h1>
+      <p class="w-full text-center font-Kanit text-md mt-5 text-dark md:text-left self-center">
+        Abordando las tematicas referente a la unidad 1, se tienen los siguientes temas: <strong>interes simple</strong>, <strong>interes compuesto</strong>, <strong>anualidades</strong>
+      </p>
+      <div class="mt-5">
+        <a href="{% url 'simpletax' %}">
+          <button
+            class="select-button"
+          >
+          Interes Simple
+          </button>
+        </a>
+      </div>
+
+      <div class="">
+          <a href="{% url 'home' %}">
+            <button
+            class="select-button"
+          >
+              Interes Compuesto
+            </button>
+          </a>
+        </div>
+
+        <div class="">
+          <a href="{% url 'home' %}">
+            <button
+            class="select-button"
+          >
+              Anualidades
+            </button>
+          </a>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

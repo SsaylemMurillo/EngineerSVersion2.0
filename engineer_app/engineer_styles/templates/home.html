@@ -1,0 +1,122 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div
+  class="w-[92%] mx-auto min-h-screen flex flex-col justify-start items-center">
+  <!-- Card -->
+  <div
+    class="w-full mt-10 md:w-1/2 flex pt-12 pb-12 pl-5 pr-5 bg-darkgit justify-center items-center rounded shadow-md h-fit"
+  >
+    <div class="p-2">
+      <h1
+        class="text-center font-Kanit font-bold text-xl text-white md:text-left"
+      >
+        Un software para procesos económicos
+      </h1>
+      <p class="text-center font-Kanit text-md mt-5 text-white md:text-left">
+        Engineer Solver es una herramienta diseñada para resolver una variedad
+        de problemas de ingeniería económica de manera eficiente y precisa.
+      </p>
+      <div class="self-center">
+        <a href="{% url 'home' %}">
+          <button
+            id="anualidadesButton"
+            class="font-Kanit bg-white font-normal hover:bg-darkgit border-2 
+            hover:border-white hover:text-white mt-10 py-2 md:px-8 transition-colors duration-200 rounded-full w-full"
+          >
+            Empezar
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="flex items-center justify-center">
+      <img
+        class="hidden h-fit self-center md:block"
+        src="{% static 'icons/png/sust.png' %}"
+      />
+    </div>
+  </div>
+  <!-- End Card -->
+
+    <div class="p-5 flex flex-col items-center justify-center mt-10">
+      <h1 class="font-Kanit font-bold text-2xl text-center">
+        Una poderosa herramienta para realizar tus calculos
+      </h1>
+      <p class="font-Kanit text-md text-center mt-5">
+        Engineer Solver es una herramienta diseñada para resolver una variedad de
+        problemas de ingeniería económica de manera eficiente y precisa.
+      </p>
+    </div>
+    <div class="flex container justify-center mt-10 w-full">
+      <div class="flex flex-col p-5">
+        <h1 class="font-Kanit font-bold text-md text-left">
+          Calculos Financieros
+        </h1>
+        <p class="font-Kanit text-md text-md text-left">
+          Amplia gama de funciones financieras, como el cálculo de pagos de
+          préstamos, amortización, valor futuro y valor presente.
+        </p>
+      </div>
+      <div class="flex flex-col p-5">
+        <h1 class="font-Kanit font-bold text-md text-left">
+          Análisis de Inversion
+        </h1>
+        <p class="font-Kanit text-md text-md text-left">
+          Los usuarios pueden evaluar proyectos de inversión utilizando métricas
+          como el VPN y la TIR.
+        </p>
+      </div>
+      <div class="flex flex-col p-5">
+        <h1 class="font-Kanit font-bold text-md text-left">
+          Optimización Económica
+        </h1>
+        <p class="font-Kanit text-md text-md text-left">
+          Permite encontrar soluciones óptimas para problemas económicos, como
+          maximizar beneficios o minimizar costos.
+        </p>
+      </div>
+    </div>
+    <!-- Card -->
+    <div class="flex justify-center items-center mt-10 p-4 w-full md:w-1/2">
+      <div class="p-2">
+        <h1
+          class="text-center font-Kanit font-bold text-xl text-dark md:text-left md:w-44"
+        >
+          Precisión y Facilidad de Uso
+        </h1>
+        <p class="text-center font-Kanit text-md mt-5 text-dark md:text-left md:w-44">
+          Engineer Solver te permitirá ingresar los flujos de efectivo esperados
+          (inversiones iniciales, ingresos, costos operativos, etc.) y calcular el
+          VPN y la TIR. Esto te ayudará a tomar decisiones informadas sobre la
+          viabilidad de proyectos.
+        </p>
+        <div class="self-center">
+          <a href="{% url 'home' %}">
+            <h1
+              class="text-center font-Kanit bg-white font-bold hover:text-gray-100  transition-colors duration-200 w-full mt-2 md:text-left"
+            >
+              Empezar >>>
+            </h1>
+          </a>
+        </div>
+      </div>
+      <div
+        class="hidden md:block"
+      >
+      <div class="grid grid-cols-3 justify-items-center w-96 gap-4">
+        <img
+        class="object-cover bg-darkgit md:h-52 md:w-56 rounded m-5"
+          src="{% static 'icons/png/eco1.png' %}"
+        />
+        <img
+        class="object-cover bg-darkgit md:h-52 md:w-44 rounded m-5 mt-12"
+          src="{% static 'icons/png/eco2.png' %}"
+        />
+        <img
+        class="object-cover bg-darkgit md:h-52 md:w-44 rounded m-5"
+          src="{% static 'icons/png/eco3.png' %}"
+        />
+      </div>
+    </div>
+    </div>
+    {% endblock %}
+  </div>
+</div>

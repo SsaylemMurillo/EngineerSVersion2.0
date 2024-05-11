@@ -1,0 +1,168 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %} {% tailwind_css %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="{% static 'app.js' %}"></script>
+    <title>EngineerS App</title>
+    <link rel="icon" href="{% static 'files/logo2.png' %}" />
+  </head>
+  <body class="grid w-full min-h-screen bg-white">
+    <nav
+      class="self-start m-10 flex justify-center md:justify-between md:items-center w-[92%] rounded mx-auto h-fit"
+    >
+      <div class="flex justify-start self-center">
+        <a href="{% url 'home' %}"><h1
+          class="font-[Kanit] font-bold text-darkgit md:text-xl ml-5 text-start"
+        >
+          EngineerS
+        </h1>
+        </a>
+      </div>
+      <div class="md:hidden mr-10"></div>
+      <div class="flex flex-row">
+        <!-- Buttons -->
+        <div
+          class="bg-white mt-20 nav-links md:static border-dark border-opacity-75 shadow-xl  absolute md:shadow-none md:min-h-fit min-h-[10vh] top-[-100%] md:bg-transparent w-fit md:w-auto flex flex-col items-center justify-center md:m-0 p-5 md:p-0 rounded"
+        >
+          <h1
+            class="md:hidden mt-2 mb-2 font-[Kanit] font-normal text-darkgit md:text-xl"
+          >
+            Options
+          </h1>
+          <ul class="flex md:flex-row flex-col items-center md:gap-8">
+            <li onclick="onBurguerClick">
+              <a href="{% url 'first_unit' %}">
+                <button id="simpleButton" class="button-nav-bar">
+                  Unidad 1
+                </button>
+              </a>
+            </li>
+            <li onclick="onBurguerClick">
+              <a href="{% url 'second_unit' %}">
+                <button id="compuestoButton" class="button-nav-bar">
+                  Unidad 2
+                </button>
+              </a>
+            </li>
+            <li onclick="onBurguerClick">
+              <a href="{% url 'home' %}">
+                <button id="anualidadesButton" class="button-nav-bar">
+                  Unidad 3
+                </button>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex items-center">
+          <a href="{% url 'home' %}">
+            <button id="docsButton" class="main-button">Docs</button>
+          </a>
+
+          <div
+            class="md:hidden flex flex-row justify-center items-center bg-darkgit cursor-pointer rounded p-2 m-2"
+            onclick="onBurguerClick()"
+          >
+            <img
+              id="imageButton"
+              name="menu"
+              class="font-Kanit text-3xl md:hidden"
+              src="{% static 'icons/feather/menu3.svg' %}"
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+    {% block content %} {% endblock %}
+    <footer class="w-[92%] self-end h-fit mx-auto p-2 bg-darkgit mt-10 text-white flex rounded-t-md">
+      <div class="shrink-0 mt-10 ml-5 flex mb-10">
+        <div class="flex flex-col items-start justify-center pl-5">
+          <h1 class="font-[Kanit] font-bold text-white md:text-xl">
+            EngineerS
+          </h1>
+          <p class="hidden font-Kanit text-sm pt-2 w-32 text-white md:block">
+            Mejora tu flujo de trabajo, potencia tus ingresos.
+          </p>
+        </div>
+      </div>
+      <div class="flex grow items-center justify-end pt-2 pb-5">
+        <div class="mr-10 flex flex-col">
+          <h1
+            class="font-[Kanit] font-bold text-white md:text-md mb-10 text-right"
+          >
+            Compañia
+          </h1>
+          <ul>
+            <li>
+              <a href="{% url 'home' %}"
+                ><h3
+                  class="font-[Kanit] text-white md:text-sm hover:text-dark text-right"
+                >
+                  Carreras
+                </h3></a
+              >
+            </li>
+            <li>
+              <a href="{% url 'home' %}"
+                ><h3
+                  class="font-[Kanit] text-white md:text-sm hover:text-dark text-right"
+                >
+                  Acerca de nosotros
+                </h3></a
+              >
+            </li>
+            <li>
+              <a href="{% url 'home' %}"
+                ><h3
+                  class="font-[Kanit] text-white md:text-sm hover:text-dark text-right"
+                >
+                  Contacto
+                </h3></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="flex items-center justify-end mr-10">
+          <div class="ml-5 flex flex-col">
+            <h1
+              class="font-[Kanit] font-bold text-white md:text-md mb-10 text-right"
+            >
+              Recursos
+            </h1>
+            <ul>
+              <li>
+                <a href="{% url 'home' %}"
+                  ><h3
+                    class="font-[Kanit] text-white md:text-sm hover:text-dark text-right"
+                  >
+                    Soporte
+                  </h3></a
+                >
+              </li>
+              <li>
+                <a href="{% url 'home' %}"
+                  ><h3
+                    class="font-[Kanit] text-white md:text-sm hover:text-dark text-right"
+                  >
+                    Seguridad
+                  </h3></a
+                >
+              </li>
+              <li>
+                <a href="{% url 'home' %}"
+                  ><h3
+                    class="font-[Kanit] text-white md:text-sm hover:text-dark text-right"
+                  >
+                    Terminos y condiciones
+                  </h3></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
